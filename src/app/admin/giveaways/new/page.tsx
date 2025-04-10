@@ -1,3 +1,4 @@
+"use client"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
@@ -8,8 +9,11 @@ import Link from "next/link"
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
 import { Calendar as CalendarComponent } from "@/components/ui/calendar"
 import { es } from "date-fns/locale"
+import dynamic from "next/dynamic"
 
 export default function NewGiveawayPage() {
+const CalendarClient = dynamic(() => import("@/app/components/CalendarClient"), { ssr: false })
+  
   return (
     <div className=" px-4 py-12 md:px-6 md:py-24">
       <div className="flex items-center gap-4 mb-8">
@@ -87,7 +91,7 @@ export default function NewGiveawayPage() {
                     </Button>
                   </PopoverTrigger>
                   <PopoverContent className="w-auto p-0 bg-gray-900 border-gray-800">
-                    <CalendarComponent mode="single" locale={es} className="bg-gray-900 text-white" />
+                    <CalendarClient  mode="single" locale={es} className="bg-gray-900 text-white" />
                   </PopoverContent>
                 </Popover>
               </div>
