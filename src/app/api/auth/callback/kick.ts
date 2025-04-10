@@ -26,6 +26,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     // Podés guardar la sesión/token, o redirigir
     res.status(200).json({ tokenData })
   } catch (error: unknown) {
+    console.log(error)
     res.status(500).json({ error: "Failed to exchange code for token" })
   }
 }

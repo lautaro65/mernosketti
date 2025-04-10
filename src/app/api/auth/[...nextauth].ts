@@ -1,6 +1,5 @@
 import NextAuth from "next-auth"
 import type { NextAuthOptions } from "next-auth"
-import { generateCodeChallenge, generateCodeVerifier } from "@/utils/pkce"
 
 const KICK_AUTH_URL = "https://id.kick.com/oauth"
 
