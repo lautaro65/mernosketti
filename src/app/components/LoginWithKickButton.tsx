@@ -1,6 +1,4 @@
-// pages/index.tsx
 'use client'
-import { useEffect } from "react"
 import { generateCodeChallenge, generateCodeVerifier } from "@/utils/pkce"
 
 export default function Home() {
