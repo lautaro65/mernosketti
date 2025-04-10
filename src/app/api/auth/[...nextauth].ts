@@ -2,7 +2,11 @@ import NextAuth from "next-auth"
 import type { NextAuthOptions } from "next-auth"
 
 const KICK_AUTH_URL = "https://id.kick.com/oauth"
-
+type KickProfile = {
+    id: string
+    username: string
+    avatar: string
+  }
 const authOptions: NextAuthOptions = {
   providers: [
     {
@@ -23,7 +27,7 @@ const authOptions: NextAuthOptions = {
       userinfo: "https://kick.com/api/v1/user",
       clientId: process.env.KICK_CLIENT_ID,
       clientSecret: process.env.KICK_CLIENT_SECRET,
-      profile(profile: any) {
+      profile(profile: KickProfile) {
         return {
           id: profile.id,
           name: profile.username,
